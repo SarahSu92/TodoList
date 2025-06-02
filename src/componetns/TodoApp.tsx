@@ -14,6 +14,6 @@ const addTodo = (t: Todo) => {
     return<>
     <h1>Todos</h1>
     <Todos   />
-    <AddTodo />
+    <AddTodo addTodo={addTodo} />
     </>
 }
