@@ -7,7 +7,7 @@ type AddTodoProps = {
 
 export const AddTodo = ({ addTodo }: AddTodoProps) => {
   const [newTodo, setnewTodo] = useState<Todo>({
-    id:  Number(`${Date.now()}${Math.floor(Math.random() * 1000)}`),
+    id:  Number(Date.now()),
     name: '',
     created_at: Number(`${Date.now()}${Math.floor(Math.random() * 1000)}`),
     done: false,
@@ -27,8 +27,6 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const created_at = new Date().toISOString(); // e.g., "2025-06-02T14:37:00.123Z"
-    localStorage.setItem('created_at', created_at);
 
     addTodo(newTodo);
   };
@@ -48,8 +46,6 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
         type="checkbox"
         checked={newTodo.done}
         onChange={handleChange}
-        placeholder='New todo'
-        required
       />
       <button>Add new Todo!</button>
     </form>

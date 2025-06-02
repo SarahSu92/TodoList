@@ -1,19 +1,18 @@
 import { useState } from "react"
 import { Todo } from "../models/Todos"
 import { AddTodo } from "./AddTodo"
-import { Todos } from "./Todos"
+import { Todos } from "./Todos";
 
-export const TodoApp = () => {
 
-const [todo, setTodo] = useState<Todo[]>([])
+export const TodosApp = () => {
+  const [todos, setTodos] = useState<Todo[]>([]);
 
 const addTodo = (t: Todo) => {
-    setTodo([...todo, t]);
+    setTodos([...todos, t]);
 }
 
     return<>
-    <h1>Todos</h1>
-    <Todos   />
+    <Todos todos={todos} />
     <AddTodo addTodo={addTodo} />
     </>
 }

@@ -1,10 +1,11 @@
-import { TodoApp } from "./componetns/TodoApp";
+
+import { TodosApp } from "./componetns/TodosApp";
 import "./scss/style.scss";
 
 function App() {
   return <>
   
-  <TodoApp />
+  <TodosApp />
   
  </>
   
