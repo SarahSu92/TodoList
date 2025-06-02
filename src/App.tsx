@@ -1,7 +1,15 @@
-
+import { TodoApp } from "./componetns/TodoApp";
+import "./scss/style.scss";
 
 function App() {
-  return <></>;
+  return <>
+  
+  <TodoApp />
+  
+ </>
+  
+
 }
+
 
 export default App;
