@@ -28,7 +28,28 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    addTodo(newTodo);
+    //New id and timestamp
+     const todoToAdd = {
+      ...newTodo,
+      id: Date.now(),
+      created_at: Number(`${Date.now()}${Math.floor(Math.random() * 1000)}`),
+    };
+
+    addTodo(todoToAdd);
+
+
+    //Local storage
+    const existingTodos: Todo[] = JSON.parse(localStorage.getItem('todos') || '[]');
+    const updatedTodos = [...existingTodos, todoToAdd];
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+
+    //Empty input
+    setnewTodo({
+      id: Date.now(),
+      name: '',
+      created_at: 0,
+      done: false,
+    })
   };
 
   return (

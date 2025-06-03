@@ -5,11 +5,14 @@ import { Todos } from "./Todos";
 
 
 export const TodosApp = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+const [todos, setTodos] = useState<Todo[]>(() => {
+  const stored = localStorage.getItem('todos');
+  return stored ? JSON.parse(stored) : [];
+});
 
-const addTodo = (t: Todo) => {
-    setTodos([...todos, t]);
-}
+const addTodo = (newTodo: Todo) => {
+  setTodos((prev) => [...prev, newTodo]);
+};
 
     return<>
     <Todos todos={todos} />
