@@ -20,9 +20,16 @@ export const Todos = ({ todos, toggleTodo, removeTodo, sortBy, setSortBy }: Todo
         <option value="date">Sort by Date</option>
         <option value="name">Sort by Name</option>
       </select>
-      {todos.map((t) => (
-        <TodoPresentation key={t.id} todo={t} toggleTodo={toggleTodo} removeTodo={removeTodo} />
-      ))}
+
+      {todos.length === 0 ? (
+        <h2>🎉 Congratulations, your todo list is empty!</h2>
+      ) : (todos.map((t) => (
+      <TodoPresentation 
+      key={t.id} todo={t} 
+      toggleTodo={toggleTodo} 
+      removeTodo={removeTodo} />
+    ))
+  )}
     </div>
   );
 };
