@@ -4,13 +4,16 @@ import { TodoPresentation } from "./TodoPresentation";
 
 type TodosProps = {
   todos: Todo[];
+  removeTodo: (id: number) => void;
 }
 
-export const Todos = ({ todos }: TodosProps) => {
+
+export const Todos = ({ todos, removeTodo }: TodosProps) => {
+ 
   return (
     <div>
       {todos.map((t) => (
-        <TodoPresentation key={t.id} todo={t} />
+        <TodoPresentation key={t.id} todo={t} removeTodo={removeTodo} />
       ))}
     </div>
   );

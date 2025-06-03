@@ -2,11 +2,15 @@ import type { Todo } from "../models/Todos";
 
 type TodoPresentationProps = {
     todo: Todo;
+    removeTodo: (id: number) => void;
     
 }
 
-export const TodoPresentation = ({todo}: TodoPresentationProps) => {
-    return (
+export const TodoPresentation = ({todo, removeTodo}: TodoPresentationProps) => {
+  const handleDoneChange = () => {
+    removeTodo(todo.id);
+  }  
+  return (
   <div className="container">
     <ul>
         <li>{todo.name}</li>
@@ -18,6 +22,7 @@ export const TodoPresentation = ({todo}: TodoPresentationProps) => {
             <input
               type="checkbox"
               defaultChecked={false}
+              onChange={handleDoneChange}
               
             />
           </label>

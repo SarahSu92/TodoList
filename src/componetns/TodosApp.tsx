@@ -10,12 +10,19 @@ const [todos, setTodos] = useState<Todo[]>(() => {
   return stored ? JSON.parse(stored) : [];
 });
 
+const removeTodo = (id: number) => {
+  const updated = todos.filter(t => t.id !== id);
+  setTodos(updated);
+  localStorage.setItem("todos", JSON.stringify(updated));
+};
+
 const addTodo = (newTodo: Todo) => {
   setTodos((prev) => [...prev, newTodo]);
 };
 
+
     return<>
-    <Todos todos={todos} />
+    <Todos todos={todos} removeTodo={removeTodo} />
     <AddTodo addTodo={addTodo} />
     </>
 }

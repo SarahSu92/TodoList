@@ -43,6 +43,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
     const updatedTodos = [...existingTodos, todoToAdd];
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
 
+
     //Empty input
     setnewTodo({
       id: Date.now(),
