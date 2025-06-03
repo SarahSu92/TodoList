@@ -28,13 +28,21 @@ const [sortBy, setSortBy] = useState<'date' | 'name'>('date');
   }
 });
 
+const toggleTodo = (id: number) => {
+  const updated = todos.map(todo =>
+    todo.id === id ? { ...todo, done: !todo.done } : todo
+  );
+  setTodos(updated);
+  localStorage.setItem("todos", JSON.stringify(updated));
+};
+
 const addTodo = (newTodo: Todo) => {
   setTodos((prev) => [...prev, newTodo]);
 };
 
 
     return<>
-    <Todos todos={sortedTodos} removeTodo={removeTodo} sortBy={sortBy} setSortBy={setSortBy} />
+    <Todos todos={sortedTodos} sortBy={sortBy} setSortBy={setSortBy} toggleTodo={toggleTodo} removeTodo={removeTodo} />
     <AddTodo addTodo={addTodo} />
     </>
 }

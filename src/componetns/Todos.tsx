@@ -3,12 +3,14 @@ import { TodoPresentation } from './TodoPresentation';
 
 type TodosProps = {
   todos: Todo[];
-  removeTodo: (id: number) => void;
   sortBy: 'date' | 'name';
   setSortBy: (value: 'date' | 'name') => void;
+  toggleTodo: (id: number) => void;
+  removeTodo: (id: number) => void;
 };
 
-export const Todos = ({ todos, removeTodo, sortBy, setSortBy }: TodosProps) => {
+export const Todos = ({ todos, toggleTodo, removeTodo, sortBy, setSortBy }: TodosProps) => {
+ 
   return (
     <div>
       <select
@@ -19,7 +21,7 @@ export const Todos = ({ todos, removeTodo, sortBy, setSortBy }: TodosProps) => {
         <option value="name">Sort by Name</option>
       </select>
       {todos.map((t) => (
-        <TodoPresentation key={t.id} todo={t} removeTodo={removeTodo} />
+        <TodoPresentation key={t.id} todo={t} toggleTodo={toggleTodo} removeTodo={removeTodo} />
       ))}
     </div>
   );
