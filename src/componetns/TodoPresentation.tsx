@@ -3,7 +3,7 @@ import type { Todo } from "../models/Todos";
 type TodoPresentationProps = {
     todo: Todo;
     removeTodo: (id: number) => void;
-    
+        
 }
 
 export const TodoPresentation = ({todo, removeTodo}: TodoPresentationProps) => {
@@ -23,13 +23,10 @@ export const TodoPresentation = ({todo, removeTodo}: TodoPresentationProps) => {
               type="checkbox"
               defaultChecked={false}
               onChange={handleDoneChange}
-              
-            />
+              />
           </label>
         </li>
     </ul>
-   
-  
-  </div>
+   </div>
 );
 }

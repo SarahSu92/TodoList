@@ -16,13 +16,25 @@ const removeTodo = (id: number) => {
   localStorage.setItem("todos", JSON.stringify(updated));
 };
 
+const [sortBy, setSortBy] = useState<'date' | 'name'>('date');
+
+  const sortedTodos = [...todos].sort((a, b) => {
+  switch (sortBy) {
+    case "name":
+      return a.name.localeCompare(b.name); //Sort by name
+    case "date":
+    default:
+      return b.created_at - a.created_at; // New todo first
+  }
+});
+
 const addTodo = (newTodo: Todo) => {
   setTodos((prev) => [...prev, newTodo]);
 };
 
 
     return<>
-    <Todos todos={todos} removeTodo={removeTodo} />
+    <Todos todos={sortedTodos} removeTodo={removeTodo} sortBy={sortBy} setSortBy={setSortBy} />
     <AddTodo addTodo={addTodo} />
     </>
 }
