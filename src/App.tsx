@@ -1,17 +1,13 @@
+import { TodosApp } from './componetns/TodosApp';
+import './scss/style.scss'
 
-import { TodosApp } from "./componetns/TodosApp";
-import "./scss/style.scss";
 
 function App() {
-  
-  return <>
-  
-  <TodosApp />
-  
- </>
-  
-
+  return (
+    <>
+      <TodosApp />
+    </>
+  );
 }
-
 
 export default App;

@@ -33,5 +33,6 @@ export const Todos = ({ todos, toggleTodo, removeTodo, sortBy, setSortBy }: Todo
     ))
   )}
     </div>
+   
   );
 };
