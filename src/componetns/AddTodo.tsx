@@ -20,9 +20,6 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
     if (e.target.type === 'number') {
       setnewTodo({ ...newTodo, [e.target.id]: parseInt(e.target.value) });
     }
-    if (e.target.type === 'checkbox') {
-      setnewTodo({ ...newTodo, [e.target.id]: e.target.checked });
-    }
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -54,8 +51,8 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form onSubmit={handleSubmit} className='newtodo'>
+      <input className='add'
         id="name"
         type="text"
         value={newTodo.name}
@@ -63,12 +60,7 @@ export const AddTodo = ({ addTodo }: AddTodoProps) => {
         placeholder='New todo'
         required
       />
-      <input
-        id="done"
-        type="checkbox"
-        checked={newTodo.done}
-        onChange={handleChange}
-      />
+     
       <button>Add new Todo!</button>
     </form>
   );

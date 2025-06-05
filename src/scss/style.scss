@@ -2,3 +2,160 @@ body {
     background-color: #88f4a4;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #034402;
+    text-align: center;
+
+
+}
+
+.sun {
+    display: inline-block;
+    animation: spin 5s linear infinite;
+    font-size: 3rem;
+    transform-origin: center;
+    line-height: 1;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.sort-select {
+    padding: 0.1rem 0.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover {
+        border-color: #3dff03;
+    }
+
+    &:focus {
+        border: 2px solid #034402;
+    }
+
+}
+
+.newtodo {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    font-size: 1rem;
+    border-radius: 40px;
+    border-color: #034402;
+    padding: 0.5rem;
+
+    &:hover {
+        border-color: #3dff03;
+    }
+
+    &:focus {
+        outline: none;
+        border: 2px solid #034402;
+        ;
+    }
+
+}
+
+button {
+    border-radius: 40px;
+    background-color: #034402;
+    color: #fff;
+    padding: 0.5rem;
+    font-weight: bold;
+    margin-left: 1rem;
+
+    &:hover {
+        background-color: #3dff03;
+        color: #000;
+        font-weight: bold;
+    }
+
+    &:focus {
+        outline: none;
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 2px rgba(34, 255, 0, 0.226);
+    }
+}
+
+.todo-card {
+    list-style: none;
+    padding: 1rem;
+    border: 2px solid #3dff03;
+    border-radius: 12px;
+    background-color: #082f07;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.todo-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.todo-name.done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-info {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.todo-actions input[type='checkbox'] {
+    transform: scale(1.2);
+    accent-color: #3dff03;
+    margin-left: 8px;
+
+    &:focus {
+        outline: none;
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 2px rgba(34, 255, 0, 0.226);
+    }
+}
+
+
+
+@media screen and (min-width:720px) {
+    h2 {
+        font-size: 1.5rem;
+
+    }
+
+    .todo-info {
+        margin-bottom: 1rem;
+    }
+
+    .todo-card {
+        width: 500px;
+        text-align: center;
+    }
+}
