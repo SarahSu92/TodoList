@@ -7,7 +7,21 @@ import { Todos } from "./Todos";
 export const TodosApp = () => {
 const [todos, setTodos] = useState<Todo[]>(() => {
   const stored = localStorage.getItem('todos');
-  return stored ? JSON.parse(stored) : [];
+  if (stored && stored !== "[]") return JSON.parse(stored);
+    return [
+    {
+      id: 1,
+      name: "Clean house",
+      done: false,
+      created_at: Number(`${Date.now()}${Math.floor(Math.random() * 1000)}`),
+    },
+    {
+      id: 2,
+      name: "Study React",
+      done: false,
+      created_at: Number(`${Date.now()}${Math.floor(Math.random() * 1000)}`),
+    },
+  ];
 });
 
 const removeTodo = (id: number) => {
@@ -42,7 +56,9 @@ const addTodo = (newTodo: Todo) => {
 
 
     return<>
+    <div className="todos-app">
     <Todos todos={sortedTodos} sortBy={sortBy} setSortBy={setSortBy} toggleTodo={toggleTodo} removeTodo={removeTodo} />
     <AddTodo addTodo={addTodo} />
+    </div>
     </>
 }

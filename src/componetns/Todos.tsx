@@ -13,6 +13,7 @@ export const Todos = ({ todos, toggleTodo, removeTodo, sortBy, setSortBy }: Todo
  
   return (
     <div className='root'>
+      
       <h1>Todos<span className="sun">☀️</span></h1>
       <select
       className='sort-select'
