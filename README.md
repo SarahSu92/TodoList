@@ -1,5 +1,5 @@
 
-# Project Title
+# About the project 
 
 This is s school project about learning React and creating a simple todo list in wich you can add tasks, marked them as complete and remove them. 
 
